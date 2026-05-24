@@ -22,6 +22,7 @@ namespace Niidea
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             int Contraseña = Convert.ToInt32(InputPass.Text);
             String User = InputUser.Text;
 
@@ -56,6 +57,11 @@ namespace Niidea
         private void InputUser_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
