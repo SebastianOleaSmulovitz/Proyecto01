@@ -14,27 +14,42 @@ namespace Niidea
 {
     public partial class Form3 : Form
     {
+        MySqlConnection connectionBD = new MySqlConnection(
+            "server=127.0.0.1;port=3306;user=root;password=;database=app;"
+        );
 
-        MySqlConnection connectionBD = new MySqlConnection("server=127.0.0.1;port=3306;user=root;password=;database=app;");
-        connectionBD.Open();
-        MySqlDataReader reader = null;
-        try{
+        private void CargarTabla()
+        {
+            try
+            {
+                connectionBD.Open();
 
-        }
-        catch (){
+                string query = "SELECT * FROM catalogo";
 
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, connectionBD);
 
+                DataTable dt = new DataTable();
+
+                adapter.Fill(dt);
+
+               
+                dataGridView1.AutoGenerateColumns = false;
+
+               
+                Codigo.DataPropertyName = "idCodigo";
+                Categoria.DataPropertyName = "Categoria";
+                Stock.DataPropertyName = "Stock";
+                Nombre.DataPropertyName = "Nombre";
+
+                dataGridView1.DataSource = dt;
+
+                connectionBD.Close();
             }
-
-
-
-
-
-
-
-
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
 
 
@@ -72,7 +87,7 @@ namespace Niidea
 
         private void Form3_Load(object sender, EventArgs e)
         {
-
+            CargarTabla();
         }
     }
 }
