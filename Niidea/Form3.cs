@@ -40,6 +40,7 @@ namespace Niidea
                 Categoria.DataPropertyName = "Categoria";
                 Stock.DataPropertyName = "Stock";
                 Nombre.DataPropertyName = "Nombre";
+                Precio.DataPropertyName = "Precio";
 
                 dataGridView1.DataSource = dt;
 
@@ -118,6 +119,7 @@ namespace Niidea
                 Categoria.DataPropertyName = "Categoria";
                 Stock.DataPropertyName = "Stock";
                 Nombre.DataPropertyName = "Nombre";
+                Precio.DataPropertyName = "Precio";
 
                 dataGridView1.DataSource = dt;
 
