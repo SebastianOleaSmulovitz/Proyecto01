@@ -89,5 +89,57 @@ namespace Niidea
         {
             CargarTabla();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+            try
+            {
+                int inputBuscar = Convert.ToInt32(inputB.Text);
+
+                connectionBD.Open();
+
+                string query = "SELECT * FROM catalogo WHERE idCodigo = @codigo";
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, connectionBD);
+                adapter.SelectCommand.Parameters.AddWithValue("@codigo", inputBuscar);
+
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                dataGridView1.AutoGenerateColumns = false;
+
+                Codigo.DataPropertyName = "idCodigo";
+                Categoria.DataPropertyName = "Categoria";
+                Stock.DataPropertyName = "Stock";
+                Nombre.DataPropertyName = "Nombre";
+
+                dataGridView1.DataSource = dt;
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Código no encontrado.");
+                }
+
+                connectionBD.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            if (string.IsNullOrWhiteSpace(inputB.Text))
+            {
+                CargarTabla();
+                return;
+            }
+        }
     }
+
+
+
 }
