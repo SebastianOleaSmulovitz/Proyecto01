@@ -140,6 +140,13 @@ namespace Niidea
                 return;
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AgregarProducto AgregarProducto = new AgregarProducto();
+            AgregarProducto.Show();
+            
+        }
     }
 
 

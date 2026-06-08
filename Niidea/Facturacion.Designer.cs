@@ -95,6 +95,7 @@
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(120, 49);
             this.checkedListBox1.TabIndex = 3;
+            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // DNI
             // 
@@ -186,6 +187,7 @@
             this.label7.Size = new System.Drawing.Size(50, 13);
             this.label7.TabIndex = 14;
             this.label7.Text = "Producto";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // textBox6
             // 
