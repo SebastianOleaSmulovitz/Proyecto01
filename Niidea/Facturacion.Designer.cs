@@ -33,15 +33,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.DNI = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.inputDni = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.inputNombre = new System.Windows.Forms.TextBox();
+            this.inputApellido = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.inputCelular = new System.Windows.Forms.TextBox();
+            this.inputCorreo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -52,6 +52,7 @@
             this.UNIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.COBRAR = new System.Windows.Forms.Button();
+            this.BsClient = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,17 +108,18 @@
             this.DNI.Text = "DNI";
             this.DNI.Click += new System.EventHandler(this.DNI_Click);
             // 
-            // textBox1
+            // inputDni
             // 
-            this.textBox1.Location = new System.Drawing.Point(119, 94);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(66, 20);
-            this.textBox1.TabIndex = 5;
+            this.inputDni.Location = new System.Drawing.Point(95, 94);
+            this.inputDni.Name = "inputDni";
+            this.inputDni.Size = new System.Drawing.Size(112, 20);
+            this.inputDni.TabIndex = 5;
+            this.inputDni.TextChanged += new System.EventHandler(this.inputDni_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(218, 97);
+            this.label3.Location = new System.Drawing.Point(274, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 6;
@@ -132,19 +134,20 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Apellido";
             // 
-            // textBox2
+            // inputNombre
             // 
-            this.textBox2.Location = new System.Drawing.Point(294, 94);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(66, 20);
-            this.textBox2.TabIndex = 8;
+            this.inputNombre.Location = new System.Drawing.Point(324, 94);
+            this.inputNombre.Name = "inputNombre";
+            this.inputNombre.Size = new System.Drawing.Size(99, 20);
+            this.inputNombre.TabIndex = 8;
+            this.inputNombre.TextChanged += new System.EventHandler(this.inputNombre_TextChanged);
             // 
-            // textBox3
+            // inputApellido
             // 
-            this.textBox3.Location = new System.Drawing.Point(525, 94);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(66, 20);
-            this.textBox3.TabIndex = 9;
+            this.inputApellido.Location = new System.Drawing.Point(525, 94);
+            this.inputApellido.Name = "inputApellido";
+            this.inputApellido.Size = new System.Drawing.Size(133, 20);
+            this.inputApellido.TabIndex = 9;
             // 
             // label5
             // 
@@ -165,19 +168,19 @@
             this.label6.Text = "Celular";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // textBox4
+            // inputCelular
             // 
-            this.textBox4.Location = new System.Drawing.Point(336, 166);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(66, 20);
-            this.textBox4.TabIndex = 12;
+            this.inputCelular.Location = new System.Drawing.Point(336, 166);
+            this.inputCelular.Name = "inputCelular";
+            this.inputCelular.Size = new System.Drawing.Size(66, 20);
+            this.inputCelular.TabIndex = 12;
             // 
-            // textBox5
+            // inputCorreo
             // 
-            this.textBox5.Location = new System.Drawing.Point(141, 162);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(66, 20);
-            this.textBox5.TabIndex = 13;
+            this.inputCorreo.Location = new System.Drawing.Point(107, 162);
+            this.inputCorreo.Name = "inputCorreo";
+            this.inputCorreo.Size = new System.Drawing.Size(130, 20);
+            this.inputCorreo.TabIndex = 13;
             // 
             // label7
             // 
@@ -254,25 +257,36 @@
             this.COBRAR.Text = "COBRAR";
             this.COBRAR.UseVisualStyleBackColor = true;
             // 
+            // BsClient
+            // 
+            this.BsClient.Location = new System.Drawing.Point(219, 91);
+            this.BsClient.Name = "BsClient";
+            this.BsClient.Size = new System.Drawing.Size(49, 23);
+            this.BsClient.TabIndex = 19;
+            this.BsClient.Text = "Buscar";
+            this.BsClient.UseVisualStyleBackColor = true;
+            this.BsClient.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 479);
+            this.Controls.Add(this.BsClient);
             this.Controls.Add(this.COBRAR);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.inputCorreo);
+            this.Controls.Add(this.inputCelular);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.inputApellido);
+            this.Controls.Add(this.inputNombre);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.inputDni);
             this.Controls.Add(this.DNI);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.label2);
@@ -281,6 +295,7 @@
             this.Name = "Facturacion";
             this.Text = "Facturacion";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Facturacion_FormClosed);
+            this.Load += new System.EventHandler(this.Facturacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -294,15 +309,15 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Label DNI;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox inputDni;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox inputNombre;
+        private System.Windows.Forms.TextBox inputApellido;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox inputCelular;
+        private System.Windows.Forms.TextBox inputCorreo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Button button2;
@@ -313,5 +328,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UNIDAD;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Button COBRAR;
+        private System.Windows.Forms.Button BsClient;
     }
 }

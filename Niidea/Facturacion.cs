@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,13 @@ namespace Niidea
 {
     public partial class Facturacion : Form
     {
+
+        MySqlConnection connectionBD = new MySqlConnection(
+           "server=127.0.0.1;port=3306;user=root;password=;database=app;"
+       );
+
+
+
         public Facturacion()
         {
             InitializeComponent();
@@ -58,5 +66,78 @@ namespace Niidea
         {
 
         }
+
+        private void Facturacion_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(inputDni.Text, out int dni))
+            {
+                MessageBox.Show("Ingrese un DNI válido.");
+                inputDni.Focus();
+                return;
+            }
+
+            try
+            {
+                connectionBD.Open();
+
+                string query = @"SELECT Nombre, Apellido, Correo, Celular
+                         FROM clientes
+                         WHERE Dni = @Dni";
+
+                MySqlCommand cmd = new MySqlCommand(query, connectionBD);
+
+                cmd.Parameters.AddWithValue("@Dni", dni);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    inputNombre.Text = reader["Nombre"].ToString();
+                    inputApellido.Text = reader["Apellido"].ToString();
+                    inputCorreo.Text = reader["Correo"].ToString();
+                    inputCelular.Text = reader["Celular"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Cliente no encontrado.");
+
+                    inputNombre.Clear();
+                    inputApellido.Clear();
+                    inputCorreo.Clear();
+                    inputCelular.Clear();
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar cliente: " + ex.Message);
+            }
+            finally
+            {
+                if (connectionBD.State == System.Data.ConnectionState.Open)
+                {
+                    connectionBD.Close();
+                }
+            }
+
+
+        }
+
+        private void inputDni_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void inputNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
-}
+    }
+
